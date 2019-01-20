@@ -26,11 +26,20 @@ def input_data():
     return companies
 
 
-# Ввод данных
-# Список из namedtuple
-print(input_data())
-# Определить среднюю прибыль за год для всех предприятий
+def get_avg_profit(companies):
+    """ Определяет среднюю прибыль за год по всем компаниям из списка companies
+    """
+    all_profit = 0
+    for company in companies:
+        all_profit += sum(company.profit)
+    return all_profit / len(companies)
 
+
+# Ввод данных
+companies_data = input_data()
+
+# Определить среднюю прибыль за год для всех предприятий
+avg_year_profit = get_avg_profit(companies_data)
 
 # Вывести предприятия с прибылью выше среднего и ниже среднего
 
