@@ -35,11 +35,33 @@ def get_avg_profit(companies):
     return all_profit / len(companies)
 
 
+def show_companies_by_profit(companies, avg_profit):
+    """ Выводит предприятия из companies с прибылью выше и ниже среднего avg_profit
+    """
+    above = []
+    below = []
+    for company in companies:
+        if sum(company.profit) > avg_profit:
+            above.append(company)
+        else:  # Если прибыль компании равна средней считаем, что ее прибыль ниже средней
+            below.append(company)
+
+    print(f'Предприятия с прибылью выше среднего:')
+    for company in above:
+        print(company.name, sep='\n')
+
+    print(f'Предприятия с прибылью ниже среднего:')
+    for company in below:
+        print(company.name, sep='\n')
+    return 0
+
+
 # Ввод данных
 companies_data = input_data()
+print('\n', '*' * 50, '\n')
 
 # Определить среднюю прибыль за год для всех предприятий
 avg_year_profit = get_avg_profit(companies_data)
-
+print(f'Средняя прибыль компаний за год = {avg_year_profit}\n')
 # Вывести предприятия с прибылью выше среднего и ниже среднего
-
+show_companies_by_profit(companies_data, avg_year_profit)
