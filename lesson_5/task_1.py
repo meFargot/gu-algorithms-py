@@ -30,30 +30,24 @@ def get_avg_profit(companies):
     """ Определяет среднюю прибыль за год по всем компаниям из списка companies
     """
     all_profit = 0
-    for company in companies:
-        all_profit += sum(company.profit)
+    for current_company in companies:
+        all_profit += sum(current_company.profit)
     return all_profit / len(companies)
 
 
-def show_companies_by_profit(companies, avg_profit):
-    """ Выводит предприятия из companies с прибылью выше и ниже среднего avg_profit
+def get_companies_by_profit(companies, avg_profit):
+    """ Возвращает предприятия из companies с прибылью выше и ниже среднего avg_profit
     """
     above = []
     below = []
-    for company in companies:
-        if sum(company.profit) > avg_profit:
-            above.append(company)
-        else:  # Если прибыль компании равна средней считаем, что ее прибыль ниже средней
-            below.append(company)
+    for current_company in companies:
+        sum_profit = sum(current_company.profit)
+        if sum_profit > avg_profit:
+            above.append(current_company)
+        elif sum_profit < avg_profit:
+            below.append(current_company)
 
-    print(f'Предприятия с прибылью выше среднего:')
-    for company in above:
-        print(company.name, sep='\n')
-
-    print(f'Предприятия с прибылью ниже среднего:')
-    for company in below:
-        print(company.name, sep='\n')
-    return 0
+    return above, below
 
 
 # Ввод данных
@@ -63,5 +57,14 @@ print('\n', '*' * 50, '\n')
 # Определить среднюю прибыль за год для всех предприятий
 avg_year_profit = get_avg_profit(companies_data)
 print(f'Средняя прибыль компаний за год = {avg_year_profit}\n')
+
 # Вывести предприятия с прибылью выше среднего и ниже среднего
-show_companies_by_profit(companies_data, avg_year_profit)
+company_above, company_below = get_companies_by_profit(companies_data, avg_year_profit)
+
+print(f'Предприятия с прибылью выше среднего:')
+for company in company_above:
+    print(company.name, sep='\n')
+
+print(f'Предприятия с прибылью ниже среднего:')
+for company in company_below:
+    print(company.name, sep='\n')
