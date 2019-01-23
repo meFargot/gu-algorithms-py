@@ -5,3 +5,31 @@
 from collections import namedtuple
 
 
+def input_hex_number():
+    """ Получает шестнадцатеричное число с клавиатуры, возвращает массив по условию ДЗ
+    """
+    pass
+
+
+def add_numbers(a, b):
+    """ Складывает два шестнадцатеричных числа в виде массивов. Возвращает массив по условию ДЗ
+    """
+    pass
+
+
+def mult_numbers(a, b):
+    """ Умножает два шестнадцатеричных числа в виде массивов. Возвращает массив по условию ДЗ
+    """
+    pass
+
+
+hex_num_a = input_hex_number()
+hex_num_b = input_hex_number()
+
+print(f'Число A в виде массива: {hex_num_a}\nЧисло B в виде массива: {hex_num_b}')
+
+sum_a_b = add_numbers(hex_num_a, hex_num_b)
+print(f'Сумма чисел A и B = {sum_a_b}')
+
+mult_a_b = mult_numbers(hex_num_a, hex_num_b)
+print(f'Произведение чисел A и B = {sum_a_b}')
