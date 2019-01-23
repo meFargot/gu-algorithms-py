@@ -2,7 +2,7 @@
 # массив, элементы которого это цифры числа. Например, пользователь ввёл A2 и C4F. Сохранить их как [‘A’, ‘2’] и
 # [‘C’, ‘4’, ‘F’] соответственно. Сумма чисел из примера: [‘C’, ‘F’, ‘1’], произведение - [‘7’, ‘C’, ‘9’, ‘F’, ‘E’].
 
-from collections import namedtuple
+from collections import deque
 
 
 def input_hex_number():
@@ -23,10 +23,12 @@ def mult_numbers(a, b):
     pass
 
 
+print('Введите первое шестнадцатеричное число: ', end='')
 hex_num_a = input_hex_number()
+print('Введите второе шестнадцатеричное число: ', end='')
 hex_num_b = input_hex_number()
 
-print(f'Число A в виде массива: {hex_num_a}\nЧисло B в виде массива: {hex_num_b}')
+print(f'Первое число в виде массива: {hex_num_a}\nВторое число в виде массива: {hex_num_b}')
 
 sum_a_b = add_numbers(hex_num_a, hex_num_b)
 print(f'Сумма чисел A и B = {sum_a_b}')
